@@ -84,4 +84,4 @@ try:
 except sr.UnknownValueError:
 	speak("Couldn't understand")
 
-os.system('python audio.py')
+os.system('python athena.py')
