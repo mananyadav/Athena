@@ -35,12 +35,12 @@ try:
 		speak(greetings[random.randrange(1,4)])
 		# speak('Hey there.')
 	elif goog in ['how are you', 'how is it going', "how's it going"]:
-        thanks = {
-            1: "I'm good. Thanks for asking!",
-            2: "All good, thank you.",
-            3: "My systems are running pretty smoothly...",
-        }
-        speak(thanks[random.randrange(1,4)])
+		thanks = {
+			1: "I'm good. Thanks for asking!",
+			2: "All good, thank you.",
+			3: "My systems are running pretty smoothly...",
+		}
+		speak(thanks[random.randrange(1,4)])
 		# speak("I am good. Thanks for asking!")
 	elif goog[:8] in ['what is ']:
 		speak('Finding ' + goog[8:])
