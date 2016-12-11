@@ -2,4 +2,4 @@ gTTS
 wikipedia
 google
 pyaudio
-speech_recognition
+SpeechRecognition
