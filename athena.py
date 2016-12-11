@@ -76,7 +76,7 @@ try:
 	elif goog[:7] in ['Google ']:
 		spam = goog[7:]
 		googl(spam)
-	elif goog in ['name', 'name ', 'who are you']:
+	elif goog in ['name', 'who are you']:
 		speak("My name is Jewl")
 	elif goog in ['sleep', 'bye', 'exit']:
 		speak("Bye")
