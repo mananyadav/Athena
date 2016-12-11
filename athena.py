@@ -11,6 +11,11 @@ def googl(lur):
 	term = lur
 	webbrowser.open(url+term, new=2)
 
+def place(location):
+	url = 'http://www.google.com/maps/place/'
+	term = location
+	webbrowser.open(url+term, new=2)
+
 def speak(tex):
 	tts = gTTS(text=tex,lang='en')
 	tts.save('h.mp3')
@@ -42,6 +47,10 @@ try:
 		}
 		speak(thanks[random.randrange(1,4)])
 		# speak("I am good. Thanks for asking!")
+	elif goog[:9] in ['where is ']:
+		place = goog[9:]
+		speak('Finding ' + place)
+		place(place)
 	elif goog[:8] in ['what is ']:
 		speak('Finding ' + goog[8:])
 		os.system('clear')
