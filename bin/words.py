@@ -32,6 +32,7 @@ def main():
 				person = userInput[7:]
 				print 'Searching for ' + person + '...'
 				infoPerson = wikipedia.summary(person,sentences=1)
+				os.system('clear')
 				print infoPerson
 				break
 
