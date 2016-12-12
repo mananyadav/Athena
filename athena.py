@@ -2,16 +2,16 @@
 import wikipedia
 import webbrowser
 import os
-import bin
+from bin import googled
+from bin import speak
 import random
 from gtts import gTTS
 import speech_recognition as sr
 
-	tts = gTTS(text=tex,lang='en')
-	tts.save('h.mp3')
-	os.system('clear')
-	os.system('mpg321 h.mp3')
-	os.system('clear')
+def place(location):
+	url = 'http://www.google.com/maps/place/'
+	term = location
+	webbrowser.open(url+term, new=2)
 
 r = sr.Recognizer()
 
@@ -27,7 +27,7 @@ try:
 			2: 'hey there',
 			3: 'hi!',
 		}
-		speak(greetings[random.randrange(1,4)])
+		speak.speak(greetings[random.randrange(1,4)])
 		# speak('Hey there.')
 	elif goog in ['how are you', 'how is it going', "how's it going"]:
 		thanks = {
@@ -35,19 +35,19 @@ try:
 			2: "All good, thank you.",
 			3: "My systems are running pretty smoothly...",
 		}
-		speak(thanks[random.randrange(1,4)])
+		speak.speak(thanks[random.randrange(1,4)])
 		# speak("I am good. Thanks for asking!")
 	elif goog[:9] in ['where is ']:
 		place = goog[9:]
-		speak('Finding ' + place)
-		place(place)
+		speak.speak('Finding ' + place)
+		speak.place(place)
 	elif goog[:8] in ['what is ']:
-		speak('Finding ' + goog[8:])
+		speak.speak('Finding ' + goog[8:])
 		os.system('clear')
 		print wikipedia.summary(goog[8:],sentences=1)
-		speak(wikipedia.summary(goog[8:],sentences=1))
+		speak.speak(wikipedia.summary(goog[8:],sentences=1))
 	elif goog[:7] in ['who is ']:
-		speak("Finding " + goog[7:])
+		speak.speak("Finding " + goog[7:])
 		os.system('clear')
 		info = wikipedia.summary(goog[7:],sentences=2)
 		os.system('clear')
@@ -58,18 +58,18 @@ try:
 		infol = wikipedia.summary(goog[7:],sentences=1)
 		os.system('clear')
 		print infol
-		speak(infol)
+		speak.speak(infol)
 	elif goog in ['who made you']:
-		speak('Manan Yadav made me.')
+		speak.speak('Manan Yadav made me.')
 	elif goog[:7] in ['Google ']:
 		spam = goog[7:]
 		googled.google(spam)
 	elif goog in ['name', 'who are you']:
-		speak("My name is Jewl")
+		speak.speak("My name is Jewl")
 	elif goog in ['sleep', 'bye', 'exit']:
-		speak("Bye")
+		speak.speak("Bye")
 		exit()
 except sr.UnknownValueError:
-	speak("Couldn't understand")
+	speak.speak("Couldn't understand")
 
 os.system('python athena.py')
