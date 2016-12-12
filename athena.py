@@ -67,7 +67,7 @@ try:
 		spam = goog[7:]
 		googled.google(spam)
 	elif goog in ['name', 'who are you']:
-		speak.speak("My name is Jewl")
+		speak.speak("My name is Athena")
 	elif goog in ['sleep', 'bye bye', 'exit']:
 		speak.speak("Bye")
 		exit()
