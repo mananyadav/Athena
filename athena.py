@@ -1,13 +1,13 @@
 #!/usr/bin/python
-import wikipedia
-import webbrowser
-import os
-from bin import googled
-from bin import speak
-import random
-import speech_recognition as sr
+__author__ = 'Manan Yadav'
+    import wikipedia
+    import webbrowser
+    import os
+    from bin import googled
+    from bin import speak
+    import random
+    import speech_recognition as sr
 
-__author__ = 'manan'
 
 def place(location):
 	url = 'http://www.google.com/maps/place/'
