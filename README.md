@@ -1,5 +1,5 @@
 # Athena
-A voice UI for linux systems.
+An assistant for *Nix operating systems.
 
 ## Installtion
 
