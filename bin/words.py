@@ -54,7 +54,7 @@ def main():
 				print(thanks[random.randrange(1,4)])
 				break
 			elif userInput[:9] in ['where is ']:
-				place = userInputgoog[9:]
+				place = userInput[9:]
 				speak.speak('Finding ' + place)
 				speak.place(place)
 				break
@@ -72,10 +72,10 @@ def main():
 				text_file = open(userInput[7:]+".txt", "w")
 				text_file.write(userInput[7:]+"\n")
 				text_file.write(info+"\n")
-				text_file.close
+				text_file.close()
 				infol = wikipedia.summary(userInput[7:],sentences=1)
 				os.system('clear')
-				print infol
+				print(infol)
 				speak.speak(infol)
 				break
 			elif userInput in ['who made you']:
