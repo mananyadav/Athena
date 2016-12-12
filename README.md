@@ -6,4 +6,4 @@ Refer to the wiki : [Wiki](https://github.com/mananyadav/Athena/wiki "Google's H
 
 ## Running
 Then run - 
-> python athena.py 
+> $ python athena.py 

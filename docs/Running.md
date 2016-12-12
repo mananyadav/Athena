@@ -1,2 +1,2 @@
 # Running
-+ python athena.py
++ $ python athena.py
