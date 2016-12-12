@@ -7,5 +7,3 @@ def speak(tex):
 	os.system('mpg321 h.mp3')
 	os.system('clear')
 	
-inp = raw_input("-->")
-speak(inp)
