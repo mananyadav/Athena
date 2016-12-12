@@ -16,9 +16,10 @@ def place(location):
 	webbrowser.open(url+term, new=2)
 
 r = sr.Recognizer()
-
+os.system('clear')
 with sr.Microphone() as source:
-	print("Say something!")
+	os.system('clear')
+	print("Listening")
 	audio = r.listen(source)
 try:
 	goog = r.recognize_google(audio)

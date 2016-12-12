@@ -7,6 +7,3 @@ def speak(tex):
 	out = 'mpg321 reply.mp3'
 	a = commands.getoutput(out)
 	# os.system('mpg321 h.mp3')
-
-inp = raw_input("=>")
-speak(inp)
