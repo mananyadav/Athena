@@ -8,6 +8,8 @@ import random
 from gtts import gTTS
 import speech_recognition as sr
 
+__author__ = 'manan'
+
 def place(location):
 	url = 'http://www.google.com/maps/place/'
 	term = location
