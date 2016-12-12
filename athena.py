@@ -66,10 +66,10 @@ try:
 		googled.google(spam)
 	elif goog in ['name', 'who are you']:
 		speak.speak("My name is Jewl")
-	elif goog in ['sleep', 'bye', 'exit']:
+	elif goog in ['sleep', 'bye bye', 'exit']:
 		speak.speak("Bye")
 		exit()
 except sr.UnknownValueError:
-	speak.speak("Couldn't understand")
+	speak.speak("")
 
 os.system('python athena.py')
