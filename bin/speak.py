@@ -1,9 +1,12 @@
 def speak(tex):
 	from gtts import gTTS
-	import os
+	import commands
+	print tex
 	tts = gTTS(text=tex,lang='en')
-	tts.save('h.mp3')
-	os.system('clear')
-	os.system('mpg321 h.mp3')
-	os.system('clear')
-	
+	tts.save('reply.mp3')
+	out = 'mpg321 reply.mp3'
+	a = commands.getoutput(out)
+	# os.system('mpg321 h.mp3')
+
+inp = raw_input("=>")
+speak(inp)

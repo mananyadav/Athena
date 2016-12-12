@@ -1,8 +1,11 @@
 #!/usr/bin/python
 import datetime
 from datetime import datetime
+import google
+from google import search
 import wikipedia
 import os
+import speak
 def main():
 	running = True
 	while running:
@@ -17,9 +20,9 @@ def main():
 		for i in range(0, len(pr)):
 			# print pr[i]
 			if pr[i] in ['date', 'date?']:
-				print datetime.now().strftime('Today is %d-%m-%Y')
+				speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
 			elif pr[i] in ['time', 'time?']:
-				print datetime.now().strftime('The time is %H:%M %p')
+				speak.speak(datetime.now().strftime('The time is %H:%M %p'))
 			elif pr[i] in ['exit']:
 				running = False
 			elif pr[i] in ['clear']:
@@ -28,6 +31,12 @@ def main():
 			# 	if pr[i+1] == 'is':
 			# 		person = pr[i+2:]
 			# 		wikipedia.summary(person)
+			elif userInput[:8] in ['what is ']:
+				obg = userInput[8:]
+				speak.speak('Collecting info on ' + obg + '...')
+				infobg = wikipedia.summary(obg,sentences=1)
+				speak.speak(infobg)
+				break
 			elif userInput[:7] in ['who is ']:
 				person = userInput[7:]
 				print 'Searching for ' + person + '...'
