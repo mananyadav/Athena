@@ -2,21 +2,11 @@
 import wikipedia
 import webbrowser
 import os
+import bin
 import random
 from gtts import gTTS
 import speech_recognition as sr
 
-def googl(lur):
-	url = 'http://www.google.com/#q='
-	term = lur
-	webbrowser.open(url+term, new=2)
-
-def place(location):
-	url = 'http://www.google.com/maps/place/'
-	term = location
-	webbrowser.open(url+term, new=2)
-
-def speak(tex):
 	tts = gTTS(text=tex,lang='en')
 	tts.save('h.mp3')
 	os.system('clear')
@@ -71,11 +61,9 @@ try:
 		speak(infol)
 	elif goog in ['who made you']:
 		speak('Manan Yadav made me.')
-	elif goog in ['']:
-		speak('Alarm set.')
 	elif goog[:7] in ['Google ']:
 		spam = goog[7:]
-		googl(spam)
+		googled.google(spam)
 	elif goog in ['name', 'who are you']:
 		speak("My name is Jewl")
 	elif goog in ['sleep', 'bye', 'exit']:
