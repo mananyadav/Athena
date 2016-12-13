@@ -8,25 +8,30 @@ import wikipedia
 import os
 import speak
 def main():
+	face = open('../media/face2.txt', 'r')
+	print face.read()
+	face.close()
 	running = True
 	while running:
-		pr = {}
+		wordDict = {}
 		userInput = raw_input('=>')
 		words = userInput.split()
 		a = 0
 		for i in words:
-			pr[a] = i
+			wordDict[a] = i
 			a += 1
 
-		for i in range(0, len(pr)):
+		for i in range(0, len(wordDict)):
 			# print pr[i]
-			if pr[i] in ['date', 'date?']:
+			if wordDict[i] in ['date', 'date?']:
 				speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
-			elif pr[i] in ['time', 'time?']:
+			elif wordDict[i] in ['Google ', 'google ']:
+				speak.speak('Googling ' + userInput[i+1:])
+			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
-			elif pr[i] in ['exit']:
+			elif wordDict[i] in ['bye','exit']:
 				running = False
-			elif pr[i] in ['clear']:
+			elif wordDict[i] in ['clear']:
 				os.system('clear')
 			# elif pr[i] == 'who':
 			# 	if pr[i+1] == 'is':
@@ -51,14 +56,14 @@ def main():
 					2: "All good, thank you.",
 					3: "My systems are running pretty smoothly...",
 				}
-				print(thanks[random.randrange(1,4)])
+				speak.speak(thanks[random.randrange(1,4)])
 				break
 			elif userInput[:9] in ['where is ']:
 				place = userInput[9:]
 				speak.speak('Finding ' + place)
 				speak.place(place)
 				break
-			elif userInput[:8] in ['what is ']:
+			elif userInput[:8] in ['what is ', 'what is a ']:
 				speak.speak('Finding ' + userInput[8:])
 				os.system('clear')
 				print wikipedia.summary(userInput[8:],sentences=1)
@@ -67,11 +72,11 @@ def main():
 			elif userInput[:7] in ['who is ']:
 				speak.speak("Finding " + userInput[7:])
 				os.system('clear')
-				info = wikipedia.summary(userInput[7:],sentences=2)
+				info = wikipedia.summary(userInput[7:],sentences=10)
 				os.system('clear')
 				text_file = open(userInput[7:]+".txt", "w")
 				text_file.write(userInput[7:]+"\n")
-				text_file.write(info+"\n")
+				text_file.write(info.encode('utf-8')+"\n")
 				text_file.close()
 				infol = wikipedia.summary(userInput[7:],sentences=1)
 				os.system('clear')
@@ -86,7 +91,7 @@ def main():
 				googled.google(spam)
 				break
 			elif userInput in ['name', 'who are you']:
-				speak.speak("My name is Jewl")
+				speak.speak("My name is Athena")
 				break	
 
 if __name__ == '__main__':

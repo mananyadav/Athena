@@ -2,8 +2,6 @@ def speak(tex):
 	from gtts import gTTS
 	import commands
 	import os
-	print 'processing...'
-	os.system('clear')
 	tts = gTTS(text=tex,lang='en')
 	print tex
 	tts.save('reply.mp3')
