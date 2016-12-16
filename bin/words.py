@@ -27,6 +27,9 @@ def main():
 				speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
 			elif wordDict[i] in ['Google ', 'google ']:
 				speak.speak('Googling ' + userInput[i+1:])
+			elif wordDict[i] in ['bored', 'music']:
+				speak.speak('Playing something now...')
+				os.system('')
 			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 			elif wordDict[i] in ['bye','exit']:
