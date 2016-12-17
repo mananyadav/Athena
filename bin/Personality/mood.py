@@ -5,4 +5,3 @@ feelings = {
 	'sad' : 0,
 	'angry' : 0,
 }
-

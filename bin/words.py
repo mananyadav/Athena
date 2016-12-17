@@ -12,6 +12,8 @@ def main():
 	face = open('../media/face2.txt', 'r')
 	print face.read()
 	face.close()
+	badWords = open('../media/badWords.txt', 'r')
+	curseWords = badWords.read()
 	running = True
 	while running:
 		wordDict = {}
@@ -21,7 +23,6 @@ def main():
 		for i in words:
 			wordDict[a] = i
 			a += 1
-
 		for i in range(0, len(wordDict)):
 			# print pr[i]
 			if wordDict[i] in ['date', 'date?']:
@@ -31,6 +32,9 @@ def main():
 			elif wordDict[i] in ['bored', 'music','play']:
 				speak.speak('Playing something now...')
 				music.playMusic()
+			elif wordDict[i] in curseWords:
+				speak.speak('That\'s not very nice!')
+				break
 			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 			elif wordDict[i] in ['bye','exit']:
@@ -49,10 +53,10 @@ def main():
 				}
 				speak.speak(greetings[random.randrange(1,4)])
 			elif userInput[:8] in ['what is ']:
-				obg = userInput[8:]
-				speak.speak('Collecting info on ' + obg + '...')
-				infobg = wikipedia.summary(obg,sentences=1)
-				speak.speak(infobg)
+				Object = userInput[8:]
+				speak.speak('Collecting info on ' + Object + '...')
+				infObject = wikipedia.summary(Object,sentences=1)
+				speak.speak(infObject)
 				break
 			elif userInput in ['how are you', 'how is it going', "how's it going"]:
 				thanks = {
