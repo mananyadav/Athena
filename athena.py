@@ -1,12 +1,12 @@
 #!/usr/bin/python
 __author__ = 'Manan Yadav'
-    import wikipedia
-    import webbrowser
-    import os
-    from bin import googled
-    from bin import speak
-    import random
-    import speech_recognition as sr
+import wikipedia
+import webbrowser
+import os
+from bin import googled
+from bin import speak
+import random
+import speech_recognition as sr
 
 
 def place(location):

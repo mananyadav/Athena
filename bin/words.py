@@ -7,6 +7,7 @@ from google import search
 import wikipedia
 import os
 import speak
+import music
 def main():
 	face = open('../media/face2.txt', 'r')
 	print face.read()
@@ -27,9 +28,9 @@ def main():
 				speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
 			elif wordDict[i] in ['Google ', 'google ']:
 				speak.speak('Googling ' + userInput[i+1:])
-			elif wordDict[i] in ['bored', 'music']:
+			elif wordDict[i] in ['bored', 'music','play']:
 				speak.speak('Playing something now...')
-				os.system('')
+				music.playMusic()
 			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 			elif wordDict[i] in ['bye','exit']:
