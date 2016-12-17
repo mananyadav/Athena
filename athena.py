@@ -5,14 +5,9 @@ import webbrowser
 import os
 from bin import googled
 from bin import speak
+from bin import	maps
 import random
 import speech_recognition as sr
-
-
-def place(location):
-	url = 'http://www.google.com/maps/place/'
-	term = location
-	webbrowser.open(url+term, new=2)
 
 r = sr.Recognizer()
 os.system('clear')
@@ -21,9 +16,9 @@ with sr.Microphone() as source:
 	print("Listening")
 	audio = r.listen(source)
 try:
-	goog = r.recognize_google(audio)
-	print("User : " + goog)
-	if goog in ['hello', 'hello ']:
+	userInput = r.recognize_google(audio)
+	print("User : " + userInput)
+	if userInput in ['hello', 'hello ']:
 		greetings = {
 			1: 'hello',
 			2: 'hey there',
@@ -31,7 +26,7 @@ try:
 		}
 		speak.speak(greetings[random.randrange(1,4)])
 		# speak('Hey there.')
-	elif goog in ['how are you', 'how is it going', "how's it going"]:
+	elif userInput in ['how are you', 'how is it going', "how's it going"]:
 		thanks = {
 			1: "I'm good. Thanks for asking!",
 			2: "All good, thank you.",
@@ -39,36 +34,36 @@ try:
 		}
 		speak.speak(thanks[random.randrange(1,4)])
 		# speak("I am good. Thanks for asking!")
-	elif goog[:9] in ['where is ']:
-		place = goog[9:]
+	elif userInput[:9] in ['where is ']:
+		place = userInput[9:]
 		speak.speak('Finding ' + place)
-		speak.place(place)
-	elif goog[:8] in ['what is ']:
-		speak.speak('Finding ' + goog[8:])
+		maps.place(place)
+	elif userInput[:8] in ['what is ']:
+		speak.speak('Finding ' + userInput[8:])
 		os.system('clear')
-		print wikipedia.summary(goog[8:],sentences=1)
-		speak.speak(wikipedia.summary(goog[8:],sentences=1))
-	elif goog[:7] in ['who is ']:
-		speak.speak("Finding " + goog[7:])
+		print wikipedia.summary(userInput[8:],sentences=1)
+		speak.speak(wikipedia.summary(userInput[8:],sentences=1))
+	elif userInput[:7] in ['who is ']:
+		speak.speak("Finding " + userInput[7:])
 		os.system('clear')
-		info = wikipedia.summary(goog[7:],sentences=2)
+		info = wikipedia.summary(userInput[7:],sentences=2)
 		os.system('clear')
-		text_file = open(goog[7:]+".txt", "w")
-		text_file.write(goog[7:]+"\n")
+		text_file = open(userInput[7:]+".txt", "w")
+		text_file.write(userInput[7:]+"\n")
 		text_file.write(info+"\n")
 		text_file.close
-		infol = wikipedia.summary(goog[7:],sentences=1)
+		infol = wikipedia.summary(userInput[7:],sentences=1)
 		os.system('clear')
 		print infol
 		speak.speak(infol)
-	elif goog in ['who made you']:
+	elif userInput in ['who made you']:
 		speak.speak('Manan Yadav made me.')
-	elif goog[:7] in ['Google ']:
-		spam = goog[7:]
+	elif userInput[:7] in ['Google ']:
+		spam = userInput[7:]
 		googled.google(spam)
-	elif goog in ['name', 'who are you']:
+	elif userInput in ['name', 'who are you']:
 		speak.speak("My name is Athena")
-	elif goog in ['sleep', 'bye bye', 'exit']:
+	elif userInput in ['sleep', 'bye bye', 'exit']:
 		speak.speak("Bye")
 		exit()
 except sr.UnknownValueError:

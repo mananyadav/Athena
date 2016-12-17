@@ -1,4 +1,8 @@
 def speak(tex):
+	"""
+	converts the text recieved to speech
+	using google text to speech
+	"""
 	from gtts import gTTS
 	import commands
 	import os
