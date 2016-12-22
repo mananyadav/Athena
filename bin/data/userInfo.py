@@ -9,4 +9,3 @@ socialNetworks = {
 	'twitter': False,
 	'instgram': False,
 }
-

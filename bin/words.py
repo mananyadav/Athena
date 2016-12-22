@@ -1,21 +1,21 @@
 #!/usr/bin/python
-import datetime
-import random
-from datetime import datetime
-import google
-from google import search
-import wikipedia
-import wiki
-import os
-import speak
-import music
-import maps
-import googled
 
 def main():
 	"""
-		the main function for the whole code
+	the main function for the whole code
 	"""
+	import datetime
+	import random
+	from datetime import datetime
+	import google
+	from google import search
+	import wikipedia
+	import wiki
+	import os
+	import speak
+	import music
+	import maps
+	import googled
 	badWords = open('../media/badWords.txt', 'r')
 	curseWords = badWords.read()
 	running = True
@@ -33,9 +33,13 @@ def main():
 				speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
 			elif wordDict[i] in ['Google ', 'google ']:
 				speak.speak('Googling ' + userInput[i+1:])
-			elif wordDict[i] in ['bored', 'music','play']:
+			elif wordDict[i] in ['bored', 'music', 'play']:
 				speak.speak('Playing something now...')
-				music.playMusic()
+				try:
+					music.playMusic()
+				except KeyboardInterrupt:
+					print '\n'
+					break
 			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 			elif wordDict[i] in ['bye','exit']:
@@ -54,9 +58,6 @@ def main():
 			elif userInput[:8] in ['what is ']:
 				Object = userInput[8:]
 				wiki.sumUp(Object)
-				# speak.speak('Collecting info on ' + Object + '...')
-				# infObject = wikipedia.summary(Object,sentences=1)
-				# speak.speak(infObject)
 				break
 			elif userInput in ['how are you', 'how is it going', "how's it going"]:
 				thanks = {
