@@ -5,10 +5,17 @@ from datetime import datetime
 import google
 from google import search
 import wikipedia
+import wiki
 import os
 import speak
 import music
+import maps
+import googled
+
 def main():
+	"""
+		the main function for the whole code
+	"""
 	badWords = open('../media/badWords.txt', 'r')
 	curseWords = badWords.read()
 	running = True
@@ -35,10 +42,8 @@ def main():
 				running = False
 			elif wordDict[i] in ['clear']:
 				os.system('clear')
-			# elif pr[i] == 'who':
-			# 	if pr[i+1] == 'is':
-			# 		person = pr[i+2:]
-			# 		wikipedia.summary(person)
+			elif wordDict[i] in ['cool','okay']:	
+				speak.speak('Indeed.')
 			elif userInput in ['hello', 'hello ']:
 				greetings = {
 					1: 'hello',
@@ -48,9 +53,10 @@ def main():
 				speak.speak(greetings[random.randrange(1,4)])
 			elif userInput[:8] in ['what is ']:
 				Object = userInput[8:]
-				speak.speak('Collecting info on ' + Object + '...')
-				infObject = wikipedia.summary(Object,sentences=1)
-				speak.speak(infObject)
+				wiki.sumUp(Object)
+				# speak.speak('Collecting info on ' + Object + '...')
+				# infObject = wikipedia.summary(Object,sentences=1)
+				# speak.speak(infObject)
 				break
 			elif userInput in ['how are you', 'how is it going', "how's it going"]:
 				thanks = {
@@ -63,32 +69,23 @@ def main():
 			elif userInput[:9] in ['where is ']:
 				place = userInput[9:]
 				speak.speak('Finding ' + place)
-				speak.place(place)
+				maps.place(place)
 				break
-			elif userInput[:8] in ['what is ', 'what is a ']:
+			elif userInput[:8] in ['what is '] or userInput in []:
 				speak.speak('Finding ' + userInput[8:])
 				os.system('clear')
 				print wikipedia.summary(userInput[8:],sentences=1)
 				speak.speak(wikipedia.summary(userInput[8:],sentences=1))
 				break
 			elif userInput[:7] in ['who is ']:
-				speak.speak("Finding " + userInput[7:])
-				os.system('clear')
-				info = wikipedia.summary(userInput[7:],sentences=10)
-				os.system('clear')
-				text_file = open(userInput[7:]+".txt", "w")
-				text_file.write(userInput[7:]+"\n")
-				text_file.write(info.encode('utf-8')+"\n")
-				text_file.close()
-				infol = wikipedia.summary(userInput[7:],sentences=1)
-				os.system('clear')
-				print(infol)
-				speak.speak(infol)
+				person = userInput[7:]
+				speak.speak("Finding " + person)
+				wiki.personUp(person)
 				break
 			elif userInput in ['who made you']:
 				speak.speak('Manan Yadav made me.')
 				break
-			elif userInput[:7] in ['Google ']:
+			elif userInput[:7] in ['Google ', 'google ']:
 				spam = userInput[7:]
 				googled.google(spam)
 				break

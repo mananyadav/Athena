@@ -1,3 +1,4 @@
+#!/usr/bin/python
 def speak(tex):
 	"""
 	converts the text recieved to speech
@@ -11,4 +12,5 @@ def speak(tex):
 	tts.save('reply.mp3')
 	out = 'mpg321 reply.mp3'
 	a = commands.getoutput(out)
-	# os.system('mpg321 h.mp3')
+	# os.system('mpg321 reply.mp3')
+	# webbrowser.open('reply.mp3')
