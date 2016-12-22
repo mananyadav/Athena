@@ -9,14 +9,14 @@ from bin import	maps
 import random
 import speech_recognition as sr
 
-r = sr.Recognizer()
+words = sr.Recognizer()
 os.system('clear')
 with sr.Microphone() as source:
 	os.system('clear')
 	print("Listening")
-	audio = r.listen(source)
+	audio = words.listen(source)
 try:
-	userInput = r.recognize_google(audio)
+	userInput = words.recognize_google(audio)
 	print("User : " + userInput)
 	if userInput in ['hello', 'hello ']:
 		greetings = {

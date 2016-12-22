@@ -9,9 +9,6 @@ import os
 import speak
 import music
 def main():
-	face = open('../media/face2.txt', 'r')
-	print face.read()
-	face.close()
 	badWords = open('../media/badWords.txt', 'r')
 	curseWords = badWords.read()
 	running = True
@@ -32,9 +29,6 @@ def main():
 			elif wordDict[i] in ['bored', 'music','play']:
 				speak.speak('Playing something now...')
 				music.playMusic()
-			elif wordDict[i] in curseWords:
-				speak.speak('That\'s not very nice!')
-				break
 			elif wordDict[i] in ['time', 'time?']:
 				speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 			elif wordDict[i] in ['bye','exit']:
@@ -100,6 +94,9 @@ def main():
 				break
 			elif userInput in ['name', 'who are you']:
 				speak.speak("My name is Athena")
+				break
+			elif wordDict[i] in curseWords:
+				speak.speak('That\'s not very nice!')
 				break	
 
 if __name__ == '__main__':
