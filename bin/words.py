@@ -15,7 +15,9 @@ def main():
 	import speak
 	import music
 	import maps
+	import media
 	import googled
+	media.displayFace()
 	badWords = open('../media/badWords.txt', 'r')
 	curseWords = badWords.read()
 	running = True
