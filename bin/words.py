@@ -40,9 +40,10 @@ def main(userInput):
 			except KeyboardInterrupt:
 				print '\n'
 				break
-		elif wordDict[i] in ['time', 'time?']:
+		elif wordDict[i] in ['time', ' time', 'time ', 'time?']:
 			speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 		elif wordDict[i] in ['bye','exit']:
+			speak.speak('Bye! See you later!')
 			quit()
 		elif wordDict[i] in ['clear']:
 			os.system('clear')
@@ -93,8 +94,5 @@ def main(userInput):
 		elif userInput in ['name', 'who are you']:
 			speak.speak("My name is Athena")
 			break
-		elif wordDict[i] in curseWords:
-			speak.speak('That\'s not very nice!')
-			break	
 
 # main('hello')

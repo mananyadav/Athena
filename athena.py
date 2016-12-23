@@ -5,16 +5,17 @@ from bin import words
 import random
 import speech_recognition as sr
 
-words = sr.Recognizer()
+word = sr.Recognizer()
 os.system('clear')
 with sr.Microphone() as source:
 	os.system('clear')
 	print("Listening")
-	audio = words.listen(source)
+	audio = word.listen(source)
 try:
-	userInput = words.recognize_google(audio)
+	from bin import words
+	userInput = word.recognize_google(audio)
 	print("User : " + userInput)
-	words.main(userInput)
+	words.main(str(userInput))
 except sr.UnknownValueError:
 	speak.speak("")
 
