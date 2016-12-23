@@ -1,11 +1,6 @@
 #!/usr/bin/python
 __author__ = 'Manan Yadav'
-import wikipedia
-import webbrowser
 import os
-from bin import googled
-from bin import speak
-from bin import	maps
 from bin import words
 import random
 import speech_recognition as sr
