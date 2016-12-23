@@ -10,8 +10,8 @@ def playMusic():
 	import commands
 	songs = {}
 	spam = 0
-	musicList = os.listdir('../media/music/')
+	musicList = os.listdir('media/music/')
 	for i in musicList:
 		songs[spam] = i
 		spam += 1
-	commands.getoutput('mpg321 ../media/music/'+ songs[random.randrange(0, len(musicList))])
+	commands.getoutput('mpg321 media/music/'+ songs[random.randrange(0, len(musicList))])
