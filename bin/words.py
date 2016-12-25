@@ -12,6 +12,7 @@ def main(userInput):
 	import wikipedia
 	import wiki
 	import os
+	import image
 	import speak
 	import music
 	import maps
@@ -39,6 +40,8 @@ def main(userInput):
 			except KeyboardInterrupt:
 				print '\n'
 				break
+		elif wordDict[i] in ['snap', 'picture']:
+			image.takePic()
 		elif wordDict[i] in ['time', ' time', 'time ', 'time?']:
 			speak.speak(datetime.now().strftime('The time is %I:%M %p'))
 		elif wordDict[i] in ['bye','exit']:
