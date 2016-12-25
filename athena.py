@@ -2,6 +2,9 @@
 __author__ = 'Manan Yadav'
 
 def main():
+	"""
+	the main program
+	"""
 	import os
 	from bin import words
 	import speech_recognition as sr
