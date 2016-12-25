@@ -18,8 +18,7 @@ def main(userInput):
 	import media
 	import googled
 	media.displayFace()
-	badWords = open('media/badWords.txt', 'r')
-	curseWords = badWords.read()
+	media.badWords()
 	wordDict = {}
 	# userInput = raw_input('=>')
 	words = userInput.split()
@@ -94,5 +93,3 @@ def main(userInput):
 		elif userInput in ['name', 'who are you']:
 			speak.speak("My name is Athena")
 			break
-
-# main('hello')

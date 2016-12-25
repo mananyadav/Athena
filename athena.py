@@ -4,7 +4,6 @@ __author__ = 'Manan Yadav'
 def main():
 	import os
 	from bin import words
-	import speak
 	import speech_recognition as sr
 
 	word = sr.Recognizer()
