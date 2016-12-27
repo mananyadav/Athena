@@ -1,5 +1,0 @@
-gTTS
-wikipedia
-google
-pyaudio
-SpeechRecognition
