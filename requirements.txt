@@ -1,0 +1,6 @@
+gTTS
+wikipedia
+google
+pyaudio
+SpeechRecognition
+pygame
