@@ -3,7 +3,6 @@
 def takePic():
 	import pygame
 	import random
-	import speak
 	import webbrowser
 	import pygame.camera	
 	pygame.camera.init()
@@ -13,7 +12,7 @@ def takePic():
 	img = cam.get_image()
 	fileName = 'img'+str(random.randrange(0,999))
 	pygame.image.save(img,'../media/pictures/' + str(fileName) + '.jpg')
-	speak.speak('Image saved as ' + str(fileName))
+	print ('Image saved as ' + str(fileName))
 	webbrowser.open('../media/pictures/'+str(fileName)+'.jpg')
 
 # takePic()
