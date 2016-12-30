@@ -1,10 +1,21 @@
 #!/usr/bin/python
 
+def say(text):
+	from gtts import gTTS
+	import commands
+	import os
+	tts = gTTS(text=text,lang='en')
+	print('\033[0;37;41m ' + text + '')
+	tts.save('reply.mp3')
+	out = 'mpg321 reply.mp3'
+	a = commands.getoutput(out)
+
 def sumUp(item):
 	"""
 	short two line summary of any
 	wikipedia article
 	"""
+	# print '\033[0;37;41m He was a great man'
 	import os
 	import wikipedia
 	import speak
@@ -16,9 +27,9 @@ def sumUp(item):
 		os.system('clear')
 		speak.speak('The closest I could find was : ' + results[1])
 		print 'If this isn\'t what you were looking for then try using more keywords...'
-		speak.speak(wikipedia.summary(results[1], sentences=2))
+		say(wikipedia.summary(results[1], sentences=2))
 	except Exception:
-		speak.speak("Couldn't find anything...")
+		say("Couldn't find anything...")
 
 def personUp(person):
 	"""
@@ -29,12 +40,12 @@ def personUp(person):
 	import wikipedia
 	import speak
 	try:
-		speak.speak(wikipedia.summary(person,sentences=2))
+		say(wikipedia.summary(person,sentences=2))
 		# os.system('clear')
 	except wikipedia.exceptions.DisambiguationError:
 		results = wikipedia.search(person)
 		os.system('clear')
 		speak.speak('The closest I could find was : ' + results[1])
-		speak.speak(wikipedia.summary(results[1],sentences=2))
+		say(wikipedia.summary(results[1],sentences=2))
 	except Exception:
-		speak.speak("Couldn't find anything...")
+		say("Couldn't find anything...")

@@ -19,7 +19,7 @@ def main():
 		try:
 			from bin import words
 			userInput = word.recognize_google(audio)
-			print("User : " + userInput)
+			print("I heard : " + userInput)
 			words.main(str(userInput))
 		except sr.UnknownValueError:
 			pass

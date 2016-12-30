@@ -12,6 +12,7 @@ def main(userInput):
 	import wikipedia
 	import wiki
 	import os
+	import website
 	import image
 	import speak
 	import music
@@ -42,6 +43,10 @@ def main(userInput):
 			except KeyboardInterrupt:
 				print '\n'
 				break
+		elif wordDict[i] in ['Twitter', 'GitHub', 'Facebook', 'Instagram']:
+			website.openSite(i)
+		elif wordDict[i] in ['you', 'look'] and wordDict[i] in ['there', 'alive']:
+			speak.speak('For you, sir, always.')
 		elif wordDict[i] in ['snap', 'picture']:
 			image.takePic()
 		elif wordDict[i] in ['time', ' time', 'time ', 'time?']:
@@ -68,7 +73,7 @@ def main(userInput):
 			thanks = {
 				1: "I'm good. Thank you for asking, sir.",
 				2: "All good, thank you.",
-				3: "My systems are running pretty smoothly...",
+				3: "My systems are running pretty smothly...",
 			}
 			speak.speak(thanks[random.randrange(1,4)])
 			break

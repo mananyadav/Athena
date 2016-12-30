@@ -11,8 +11,8 @@ def takePic():
 	cam.start()
 	img = cam.get_image()
 	fileName = 'img'+str(random.randrange(0,999))
-	pygame.image.save(img,'../media/pictures/' + str(fileName) + '.jpg')
+	pygame.image.save(img,'media/pictures/' + str(fileName) + '.jpg')
 	print ('Image saved as ' + str(fileName))
-	webbrowser.open('../media/pictures/'+str(fileName)+'.jpg')
+	webbrowser.open('media/pictures/'+str(fileName)+'.jpg')
 
 # takePic()
