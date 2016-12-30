@@ -9,7 +9,7 @@ def sumUp(item):
 	import wikipedia
 	import speak
 	try:
-		speak.speak(wikipedia.summary(item,sentences=2))
+		say(wikipedia.summary(item,sentences=2))
 		# os.system('clear')
 	except wikipedia.exceptions.DisambiguationError:
 		results = wikipedia.search(item)

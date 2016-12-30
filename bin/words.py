@@ -32,9 +32,11 @@ def main(userInput):
 		if wordDict[i] in ['date', 'date?']:
 			speak.speak(datetime.now().strftime('Today is %d-%m-%Y'))
 		elif wordDict[i] in ['Google ', 'google ']:
-			speak.speak('Googling ' + userInput[i+1:])
+			speak.speak('Googling ' + userInput[i+1:] + 'or you, sir.')
+		elif wordDict[i] in ['happy', 'merry', 'Happy', 'Merry']:
+			speak.speak('To you too, sir.')
 		elif wordDict[i] in ['bored', 'music', 'play']:
-			speak.speak('Playing something now...')
+			speak.speak('Playing something for you, sir.')
 			try:
 				music.playMusic()
 			except KeyboardInterrupt:
@@ -43,9 +45,9 @@ def main(userInput):
 		elif wordDict[i] in ['snap', 'picture']:
 			image.takePic()
 		elif wordDict[i] in ['time', ' time', 'time ', 'time?']:
-			speak.speak(datetime.now().strftime('The time is %I:%M %p'))
+			speak.speak(datetime.now().strftime('The time is %I:%M %p , sir.'))
 		elif wordDict[i] in ['bye','exit']:
-			speak.speak('Bye! See you later!')
+			speak.speak('Surely, sir.')
 			quit()
 		elif wordDict[i] in ['clear']:
 			os.system('clear')
@@ -53,9 +55,9 @@ def main(userInput):
 			speak.speak('Indeed.')
 		elif userInput in ['hello', 'hello ']:
 			greetings = {
-				1: 'hello',
-				2: 'hey there',
-				3: 'hi!',
+				1: 'Hello, sir.',
+				2: 'As always, nice to see you, sir.',
+				3: 'Hi!',
 			}
 			speak.speak(greetings[random.randrange(1,4)])
 		elif userInput[:8] in ['what is ']:
@@ -64,7 +66,7 @@ def main(userInput):
 			break
 		elif userInput in ['how are you', 'how is it going', "how's it going"]:
 			thanks = {
-				1: "I'm good. Thanks for asking!",
+				1: "I'm good. Thank you for asking, sir.",
 				2: "All good, thank you.",
 				3: "My systems are running pretty smoothly...",
 			}
@@ -94,5 +96,5 @@ def main(userInput):
 			googled.google(spam)
 			break
 		elif userInput in ['name', 'who are you']:
-			speak.speak("My name is Athena")
+			speak.speak("My name is Athena, sir.")
 			break
