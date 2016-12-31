@@ -15,7 +15,6 @@ def sumUp(item):
 	short two line summary of any
 	wikipedia article
 	"""
-	# print '\033[0;37;41m He was a great man'
 	import os
 	import wikipedia
 	import speak
