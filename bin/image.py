@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
+
 def takePic():
+	"""
+	takes a picture
+	from the first webcam
+	detected
+	"""
 	import pygame
 	import random
 	import webbrowser
