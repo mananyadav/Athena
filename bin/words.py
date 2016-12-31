@@ -25,6 +25,7 @@ def main(userInput):
 	# userInput = raw_input('=>')
 	words = userInput.split()
 	a = 0
+	socialNets = ['Facebook', 'Twitter', 'GitHub', 'Instagram']
 	for i in words:
 		wordDict[a] = i
 		a += 1
@@ -43,8 +44,9 @@ def main(userInput):
 			except KeyboardInterrupt:
 				print '\n'
 				break
-		elif wordDict[i] in ['Twitter', 'GitHub', 'Facebook', 'Instagram']:
-			website.openSite(i)
+		elif wordDict[i] in socialNets:
+			for site in socialNets:
+				website.openSite(wordDict[i])
 		elif wordDict[i] in ['you', 'look'] and wordDict[i] in ['there', 'alive']:
 			speak.speak('For you, sir, always.')
 		elif wordDict[i] in ['snap', 'picture']:
