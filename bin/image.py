@@ -9,7 +9,7 @@ def takePic():
 	"""
 	import pygame
 	import random
-	import webbrowser
+	import webbrowser as web
 	import pygame.camera	
 	pygame.camera.init()
 	pygame.camera.list_cameras()
@@ -19,6 +19,6 @@ def takePic():
 	fileName = 'img'+str(random.randrange(0,999))
 	pygame.image.save(img,'media/pictures/' + str(fileName) + '.jpg')
 	print ('Image saved as ' + str(fileName))
-	webbrowser.open('media/pictures/'+str(fileName)+'.jpg')
+	web.open('media/pictures/'+str(fileName)+'.jpg')
 
 # takePic()
