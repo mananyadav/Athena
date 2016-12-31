@@ -14,7 +14,7 @@ def main():
 		os.system('clear')
 		with sr.Microphone() as source:
 			os.system('clear')
-			print("Listening")
+			print("Listening...")
 			audio = word.listen(source)
 		try:
 			from bin import words
@@ -26,7 +26,7 @@ def main():
 
 		os.system('python athena.py')
 	except Exception:
-		main()
+		pass
 
 if __name__ == '__main__':
 	main()

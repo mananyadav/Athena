@@ -5,7 +5,7 @@ def say(text):
 	import commands
 	import os
 	tts = gTTS(text=text,lang='en')
-	print('\033[0;37;41m ' + text + '')
+	print('\033[0;37;41m ' + text + '\033[0;37;48m ')
 	tts.save('reply.mp3')
 	out = 'mpg321 reply.mp3'
 	a = commands.getoutput(out)
