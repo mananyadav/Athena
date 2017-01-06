@@ -1,4 +1,6 @@
 #!/usr/bin/python
+__author__ = 'Manan Yadav'
+
 
 def main(userInput):
 	"""
@@ -45,8 +47,7 @@ def main(userInput):
 				print '\n'
 				break
 		elif wordDict[i] in socialNets:
-			for site in socialNets:
-				website.openSite(wordDict[i])
+			website.openSite(wordDict[i])
 		elif wordDict[i] in ['you', 'look'] and wordDict[i] in ['there', 'alive']:
 			speak.speak('For you, sir, always.')
 		elif wordDict[i] in ['snap', 'picture']:
