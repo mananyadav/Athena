@@ -7,6 +7,7 @@ def main():
 	"""
 	import os
 	from bin import words
+	from datetime import datetime
 	import speech_recognition as sr
 
 	try:
@@ -19,8 +20,9 @@ def main():
 		try:
 			from bin import words
 			userInput = word.recognize_google(audio)
+			time = datetime.now().strftime('%I:%M:%S %p') 
 			log = open('log.txt', 'a')
-			log.write(str(userInput)+'\n')
+			log.write(str(time + ' : ') + str(userInput) + '\n')
 			print("I heard : " + str(userInput))
 			words.main(str(userInput))
 		except sr.UnknownValueError:
