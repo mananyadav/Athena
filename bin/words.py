@@ -20,6 +20,7 @@ def main(userInput):
 	import music
 	import maps
 	import media
+	import searchFB
 	import googled
 	media.displayFace()
 	media.badWords()
@@ -39,6 +40,8 @@ def main(userInput):
 			speak.speak('Googling ' + userInput[i+1:] + 'or you, sir.')
 		elif wordDict[i] in ['happy', 'merry', 'Happy', 'Merry']:
 			speak.speak('To you too, sir.')
+		if wordDict[i] in ['find']:
+			searchFB.search(str(wordDict[i+1]) + ' ' + str(wordDict[i+2]))
 		elif wordDict[i] in ['bored', 'music', 'play']:
 			speak.speak('Playing something for you, sir.')
 			try:
