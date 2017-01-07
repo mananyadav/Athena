@@ -1,4 +1,5 @@
 ## Installation 
+__refer wiki__
 
 ### For Debian/Ubuntu Systems - 
 + $ sudo apt-get update
