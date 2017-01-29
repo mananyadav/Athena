@@ -20,7 +20,7 @@ def main():
 		try:
 			from bin import words
 			userInput = word.recognize_google(audio)
-			time = datetime.now().strftime('%I:%M:%S %p') 
+			time = datetime.now().strftime('%I:%M:%S %p')
 			log = open('log.txt', 'a')
 			log.write(str(time + ' : ') + str(userInput) + '\n')
 			print("I heard : " + str(userInput))
