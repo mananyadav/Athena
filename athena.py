@@ -1,14 +1,14 @@
 #!/usr/bin/python
 __author__ = 'Manan Yadav'
+import os
+from bin import words
+from datetime import datetime
+import speech_recognition as sr
 
 def main():
 	"""
 	the main program
 	"""
-	import os
-	from bin import words
-	from datetime import datetime
-	import speech_recognition as sr
 
 	try:
 		word = sr.Recognizer()
